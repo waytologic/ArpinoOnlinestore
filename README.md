@@ -27,6 +27,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 | bhuvanselvan.d@gmail.com       | bhuvan@123  | Admin |
 | demo@arpino.in                 | demo@123    | User  |
 
+#Navigate 
+Admin -  login using crediential and click the "Hello user" and naviagete to admin screen
 
 Checkout use this offer code . 
 To insert more code go this file (src/app/shared/constants/coupon.constant.ts).

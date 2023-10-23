@@ -16,6 +16,7 @@ mat-toolbar {
     align-items: center;
     cursor: pointer;
   }
+
   .categories-menu {
     display: flex;
     flex-direction: row;
@@ -70,7 +71,7 @@ mat-toolbar {
   .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
   display: none;
 }
-
+a {color:White;}
 input::placeholder {
   font-weight: bold;
   opacity: 0.5;

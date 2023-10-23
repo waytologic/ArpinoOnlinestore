@@ -28,9 +28,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 | demo@arpino.in                 | demo@123    | User  |
 
 
-
-### CUPONS
-
 Checkout use this offer code . 
 To insert more code go this file (src/app/shared/constants/coupon.constant.ts).
 

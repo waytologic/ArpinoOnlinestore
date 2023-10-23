@@ -1,0 +1,73 @@
+<form [formGroup]="loginForm" class="form" role="form">
+  <div class="login-container">
+    <br/>
+    <div class="logo" routerLink="/" title="Back to Store">
+      <i class="fa-light fa-cart-shopping-fast fa-2xl" style="color: #380404;">&nbsp;</i>
+      <span>Aprino Online Store</span>
+    </div>
+    <br/>
+    <div class="fields">
+      <mat-form-field id="email-field">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <mat-error
+          *ngIf="
+            loginForm.get('email')!.hasError('email') &&
+            !loginForm.get('email')!.hasError('required')
+          "
+        >
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')!.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field id="password-field">
+        <mat-label>Password</mat-label>
+        <input
+          [type]="!showPassword ? 'password' : 'text'"
+          matInput
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <button
+          matSuffix
+          mat-icon-button
+          (click)="showPassword = !showPassword"
+        >
+          <mat-icon>
+            {{ !showPassword ? "visibility" : "visibility_off" }}
+          </mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')!.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="loginForm.get('password')!.hasError('incorrectPassword')"
+        >
+          Password is <strong>incorrect</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="action-buttons">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="login()"
+        [disabled]="loginForm.invalid"
+      >
+        Login
+      </button>
+      <div class="d-flex">
+      <a routerLink="/account-creation" class="text-start"> Create new </a> | <a class="text-end"> Forgot my password </a>
+    </div>
+  </div>
+  </div>
+</form>

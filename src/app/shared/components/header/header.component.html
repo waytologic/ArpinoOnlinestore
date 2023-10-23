@@ -1,0 +1,77 @@
+<mat-toolbar class="mat-elevation-z8">
+  <div class="logo" (click)="goToMainPage()">
+    <i class="fa-light fa-cart-shopping-fast" style="color: #ffffff;"></i>
+    <span>Arpino Store</span>
+  </div>
+
+  <div class="categories-menu" style="color: white !important;">
+    <button mat-button [matMenuTriggerFor]="categoryMenu">Categories</button>
+    <mat-menu #categoryMenu="matMenu" yPosition="below">
+      <span
+        mat-menu-item
+        *ngFor="let category of categories"
+        (click)="search({ category: category })"
+      >
+        {{ category }}
+      </span>
+      <!-- <span mat-menu-item>And more...</span> -->
+    </mat-menu>
+
+    <mat-form-field appearance="outline" style="color: #ffffff !important;">
+      <button
+        matPrefix
+        style="color: white !important;"
+        mat-icon-button
+        [disabled]="searchInput.value === ''"
+        (click)="search({ filter: searchInput.value })"
+      >
+      <i class="fa-solid fa-folder-magnifying-glass" style="color: #ffffff;"></i>
+      </button>
+      <input
+        class="custom-input"
+        style="color: white;"
+        type="text"
+        matInput
+        id="search"
+        #searchInput
+        placeholder="Search"
+        autocomplete="off"
+        (keyup.enter)="search({ filter: searchInput.value })"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        aria-label="Cancel search"
+        *ngIf="searchInput.value"
+        (click)="onCancel()"
+      >
+      <i class="fa-regular fa-eraser" style="color: #ffffff;"></i>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="account-manage">
+    <button *ngIf="!isAtCart" mat-icon-button (click)="goToCart()">
+      <mat-icon
+        [matBadge]="cartService.getCartProducts().length"
+        [matBadgeHidden]="cartService.getCartProducts().length === 0"
+        matBadgePosition="below"
+        matBadgeSize="small"
+      >
+        shopping_cart
+      </mat-icon>
+    </button>
+
+    <a
+      *ngIf="isLogged && loggedUser !== null"
+      (click)="goToAccountManagement(loggedUser.role === 'admin')"
+    >
+      <span> Hello, {{ loggedUser.name }} </span>
+    </a>
+
+    <a id="login-logout-btn" *ngIf="!isAtCart" (click)="loginOrLogout()">
+      <mat-icon [fontIcon]="isLogged ? 'logout' : 'login'"></mat-icon>
+      <span> {{ isLogged ? "Logout" : "Login" }} </span>
+    </a>
+  </div>
+</mat-toolbar>

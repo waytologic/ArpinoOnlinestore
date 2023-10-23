@@ -20,6 +20,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
+### User crediential for testing
+
+| E-mail                         | Senha      | Role  |
+| :--------------------          | :--------- | :---: |
+| bhuvanselvan.d@gmail.com       | bhuvan@123  | Admin |
+| demo@arpino.in                 | demo@123    | User  |
+
+
+
 ### CUPONS
 
 Checkout use this offer code . 
